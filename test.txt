@@ -1,0 +1,4 @@
+CS101,Computer,3,1
+CA123,Calculus,3,1
+IS101,Islamiyat,1,1
+PS101,Pak Studies,1,1
