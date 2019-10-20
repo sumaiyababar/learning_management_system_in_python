@@ -1,4 +1,4 @@
-import os
+import os #including Operating System
 List_of_codes=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 List_of_Names=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 List_of_creditHours=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -6,7 +6,7 @@ List_of_sem=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 stdRegNoList=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 stdNamesList=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 stdCourseList=[[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0],[0,0,0,0,0]]
-def splitting(b):
+def splitting(b):#splitting words in letters
 	global array
 	array=[]
 	a=""
@@ -17,7 +17,7 @@ def splitting(b):
 		else:
 			a+=letter
 	array= array + [a]
-def login1():
+def login1(): #loging in admin account
 	username=str(input("enter username: "))
 	password=str(input("enter password: "))
 	with open('admin.txt','r') as file:
@@ -29,7 +29,7 @@ def login1():
 			else:
 				print("_Sorry! you are not signed in._TRY AGAIN_")
 
-def login2():
+def login2(): #loging in student account
 	username=str(input("enter reg. #: "))
 	password=str(input("enter password: "))
 	global op
@@ -48,7 +48,7 @@ def login2():
 	return(op)
 	#splitting function is made too
 
-def save_course():
+def save_course(): #each times the modifications are made in any data/file it would be saved
 	a=0
 	Num=['1','2','3']
 	with open('test.txt',"w") as file:
@@ -57,7 +57,7 @@ def save_course():
 				file.write(str(List_of_codes[a])+','+str(List_of_Names[a])+','+str(List_of_creditHours[a])+','+str(List_of_sem[a]+'\n'))
 			a+=1
 			
-def load_course():
+def load_course(): #loding data from external files
 	with open('test.txt','r') as file:
 		a=0
 		s=0
@@ -71,23 +71,23 @@ def load_course():
 				List_of_sem[s]=array[3]
 				s+=1
 				
-def isValidCourseCode(i):
+def isValidCourseCode(i): #function for if the course code is valid or not
 	Uppercase_Characters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 	Numeric_Characters=['0','1','2','3','4','5','6','7','8','9']
 	if (i[0:1] in Uppercase_Characters) and (i[2:3:4] in Numeric_Characters):
 		return True
 	return(i)
-def isValidCourseName(i):
+def isValidCourseName(i): #function for if the course name is valid
 	Uppercase_Characters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 	if i[0] in Uppercase_Characters:
 		return True
 	return(i)
-def isValidCreditHours(i):
+def isValidCreditHours(i): #function for if credit hours are valid
 	Num=['1','2','3']
 	if (i in Num):
 		return True
 	return(i)
-def isValidsemesters(i):
+def isValidsemesters(i): #function for if the semster number is valid i.e, upto 8
 	available_sem=['0','1','2','3','4','5','6','7','8','0\n','1\n','2\n','3\n','4\n','5\n','6\n','7\n','8\n']
 	if (i in available_sem):
 		return True
@@ -106,7 +106,7 @@ def removeEmptyLines(file):
             t.append(line)
     out.writelines(t)   
     out.close()
-def isValidRegNum(i):
+def isValidRegNum(i): #function for checking if the register number entered is valid
 	Uppercase_Characters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 	Numeric_Characters=['0','1','2','3','4','5','6','7','8','9']
 	a=0
@@ -115,7 +115,7 @@ def isValidRegNum(i):
 	if ((a==11) and(i[0] =='2')and (i[1]=='0') and (i[2:3] in Numeric_Characters)  and (i[4] == '-') and (i[7]=='-') and (i[5:6] in  Uppercase_Characters) and (i[8:9:10] in Numeric_Characters)):
 		return True
 	return(i)
-def isValidName(i):
+def isValidName(i): #function for checking if name of student is valid or not
 	Uppercase_Characters=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 	Numeric_Characters=['0','1','2','3','4','5','6','7','8','9']
 	stu=i.split()
@@ -124,7 +124,7 @@ def isValidName(i):
 	if ((e[0] in Uppercase_Characters) and (w[0] in Uppercase_Characters)):
 		return True
 	return(i)	
-def Add_Course(i):
+def Add_Course(i): #function for adding course of student
 	List_of_codes[i]=x
 	List_of_Names[i]=z
 	List_of_creditHours[i]=p
@@ -132,7 +132,7 @@ def Add_Course(i):
 	t=[x,z,p,k]
 	print("_Your course details have been submitted as: ",t,"_")
 	return()
-def Update_Course(i):
+def Update_Course(i): #function for updatting courses of students
 	u=0
 	while u<i:
 		print(u+1,List_of_codes[u],List_of_Names[u],List_of_creditHours[u],List_of_sem[u])
@@ -159,7 +159,7 @@ def Update_Course(i):
 				print("_Still invalid, couldn't update course._")
 	else:
 		print("_Entered Course doesn't exxist._")
-def Delete_Course(i):
+def Delete_Course(i):#function for deleting courses of students
 	u=0
 	while u<=i:
 		print(u+1,List_of_codes[u],List_of_Names[u],List_of_creditHours[u],List_of_sem[u])
@@ -181,13 +181,13 @@ def Delete_Course(i):
 		i-=1
 	else:
 		print("_course does not exist_")
-def View_Courses(i):
+def View_Courses(i):#function for viewing courses of students
 	s=0
 	print("COURSE_CODE  ","COURSE_NAME  ","   CREDIT_HOURS  ","      SEMESTER")
 	while s<i:
 		print(str(List_of_codes[s])+"           "+str(List_of_Names[s])+"               ",str(List_of_creditHours[s])+"             ",str(List_of_sem[s]))
 		s+=1
-def View_Courses_of_a_semester(i):
+def View_Courses_of_a_semester(i):#function for viewing courses of students in specific semester
 		s=str(input("choose semester: "))
 		print("COURSE_CODE ","COURSE_NAME ","CREDIT_HOURS ")
 		e=0
@@ -197,10 +197,10 @@ def View_Courses_of_a_semester(i):
 			e+=1
 		if (s+'\n') not in List_of_sem:
 			print("no course of semeter "+ s +" exists")
-def Add_new_student(i):
+def Add_new_student(i):#function for adding new students
 	stdRegNoList[i]=id
 	stdNamesList[i]=student
-def Update_student():
+def Update_student():#function for udating student information in record
 	u=0
 	d=str(input("Reg. # of student whose information to be changed: "))
 	if d in stdRegNoList:
@@ -225,7 +225,7 @@ def Update_student():
 	else:
 		print("_Either reg. # or name is invalid._")
 	return()
-def Delete_student():
+def Delete_student():#function for deleting student information
 	u=0
 	d=str(input("Reg. # of student whose information you want delete: "))
 	if d in stdRegNoList:
@@ -240,13 +240,13 @@ def Delete_student():
 			u+=1
 	else:
 		print("_No student has register # :"+str(d)+"_")
-def View_students(i):
+def View_students(i):#function for viewing student information
 	s=0
 	print("sr. #     "+"Reg. #"+"                      "+"Student Name")
 	while s<(i):
 		print(str(s+1)+':       '+str(stdRegNoList[s])+"                  "+str(stdNamesList[s]))
 		s+=1
-def register():
+def register():#function for registration of student
 	student=str(input('Enter student reg.:  '))
 	course=str(input('Enter course to be registered:  '))
 	if student in stdRegNoList:
@@ -264,7 +264,7 @@ def register():
 		else:
 			print('mistake')
 	return()
-def unregister():
+def unregister():#function to unregister student
 	student=str(input('enter student reg.:  '))
 	course=str(input('enter course to be registered:  '))
 	s=0
@@ -287,6 +287,7 @@ def unregister():
 			print("either reg. # or course code is wrong.")
 	return()
 print("***Welcome to the University learning management system***")
+#MAIN STARTS HERE
 def main():
 	with open('test.txt','r') as file:
 		a=0
@@ -405,3 +406,4 @@ def main():
 						exit()
 					print("_____________________________________________________________________________________________")
 main()
+#THE END:)#
